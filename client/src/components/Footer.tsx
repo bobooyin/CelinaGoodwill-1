@@ -25,7 +25,7 @@ export default function Footer() {
             {/* Foundation Info */}
             <div className="md:col-span-1">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 rounded-full overflow-hidden shadow-lg bg-white/20 p-1">
+                <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg bg-white/50 p-1">
                   <img 
                     src={logoImage} 
                     alt="Celina's Goodwill Foundation Logo" 
