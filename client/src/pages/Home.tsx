@@ -56,14 +56,7 @@ export default function Home() {
         <PartnershipSection />
       </AnimatedSection>
       
-      {/* Newsletter Signup Section */}
-      <AnimatedSection animation="fade-up" delay={400}>
-        <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <NewsletterSignup />
-          </div>
-        </section>
-      </AnimatedSection>
+      
       
       <AnimatedSection animation="fade-up" delay={200}>
         <SocialMediaSection />
