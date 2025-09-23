@@ -10,7 +10,7 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import { ScrollProgressBar, AnimatedSection } from '@/components/ScrollAnimations';
-import { QuickActions, BackToTop } from '@/components/InteractiveElements';
+import { BackToTop } from '@/components/InteractiveElements';
 import { MessageCircle } from 'lucide-react';
 
 export default function Home() {
@@ -37,17 +37,6 @@ export default function Home() {
     }
   };
 
-  const handleGetHelp = () => {
-    scrollToSection('contact');
-  };
-
-  const handleVolunteer = () => {
-    scrollToSection('partnership');
-  };
-
-  const handleDonate = () => {
-    scrollToSection('contact');
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -92,11 +81,6 @@ export default function Home() {
       <Footer />
       
       {/* Interactive Elements */}
-      <QuickActions 
-        onGetHelp={handleGetHelp}
-        onVolunteer={handleVolunteer}
-        onDonate={handleDonate}
-      />
       <BackToTop />
     </div>
   );
