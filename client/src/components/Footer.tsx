@@ -1,5 +1,6 @@
 import { Heart, Facebook, PlayCircle, Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logoImage from '@/assets/celina-logo.webp';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -24,8 +25,12 @@ export default function Footer() {
             {/* Foundation Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-pink-500 rounded-full flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-white" />
+                <div className="w-10 h-10 rounded-full overflow-hidden shadow-lg bg-white/20 p-1">
+                  <img 
+                    src={logoImage} 
+                    alt="Celina's Goodwill Foundation Logo" 
+                    className="w-full h-full object-contain rounded-full"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold">Celina's Goodwill Foundation</h3>
               </div>
