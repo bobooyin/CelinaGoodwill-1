@@ -105,7 +105,9 @@ export default function Footer() {
               <h4 className="text-lg font-semibold mb-6 text-white">Contact Info</h4>
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href="https://web.facebook.com/joyful.healing.hub.301278"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/50 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
                   aria-label="Facebook - Celina's Goodwill Foundation"
                   data-testid="link-facebook-contact"
@@ -113,7 +115,9 @@ export default function Footer() {
                   <SiFacebook className="w-5 h-5 text-black hover:text-white transition-colors" />
                 </a>
                 <a
-                  href="#"
+                  href="https://wa.me/2349110221031?text=Hello,%20I'd%20like%20to%20learn%20more%20about%20Celina's%20Goodwill%20Foundation"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/50 hover:bg-green-600 rounded-full flex items-center justify-center transition-colors"
                   aria-label="WhatsApp - Celina's Goodwill Foundation"
                   data-testid="link-whatsapp-contact"
@@ -121,7 +125,9 @@ export default function Footer() {
                   <SiWhatsapp className="w-5 h-5 text-black hover:text-white transition-colors" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/@joyfulhealinghub"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/50 hover:bg-black rounded-full flex items-center justify-center transition-colors"
                   aria-label="TikTok - Celina's Goodwill Foundation"
                   data-testid="link-tiktok-contact"
