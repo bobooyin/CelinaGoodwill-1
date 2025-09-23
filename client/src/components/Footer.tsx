@@ -24,16 +24,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Foundation Info */}
             <div className="md:col-span-1">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg bg-white/50 p-1">
-                  <img 
-                    src={logoImage} 
-                    alt="Celina's Goodwill Foundation Logo" 
-                    className="w-full h-full object-contain rounded-full"
-                  />
-                </div>
-                <h3 className="text-xl font-bold">Celina's Goodwill Foundation</h3>
-              </div>
+              <h3 className="text-xl font-bold mb-6">Celina's Goodwill Foundation</h3>
               
               <p className="text-gray-400 leading-relaxed text-sm">
                 Breaking mental health stigma through compassion and community support
