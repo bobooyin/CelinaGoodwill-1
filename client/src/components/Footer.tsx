@@ -1,5 +1,5 @@
 import { ArrowUp } from 'lucide-react';
-import { SiFacebook, SiTiktok } from 'react-icons/si';
+import { SiFacebook, SiTiktok, SiWhatsapp } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
 import logoImage from '@/assets/celina-logo.webp';
 
@@ -103,9 +103,31 @@ export default function Footer() {
             {/* Contact Info */}
             <div>
               <h4 className="text-lg font-semibold mb-6 text-white">Contact Info</h4>
-              <div className="space-y-3">
-                <p className="text-gray-400 text-sm">celinasgoodwillfoundation@gmail.com</p>
-                <p className="text-gray-400 text-sm">+234 911 022 1031</p>
+              <div className="flex space-x-4">
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white/50 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
+                  aria-label="Facebook - Celina's Goodwill Foundation"
+                  data-testid="link-facebook-contact"
+                >
+                  <SiFacebook className="w-5 h-5 text-black hover:text-white transition-colors" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white/50 hover:bg-green-600 rounded-full flex items-center justify-center transition-colors"
+                  aria-label="WhatsApp - Celina's Goodwill Foundation"
+                  data-testid="link-whatsapp-contact"
+                >
+                  <SiWhatsapp className="w-5 h-5 text-black hover:text-white transition-colors" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white/50 hover:bg-black rounded-full flex items-center justify-center transition-colors"
+                  aria-label="TikTok - Celina's Goodwill Foundation"
+                  data-testid="link-tiktok-contact"
+                >
+                  <SiTiktok className="w-5 h-5 text-black hover:text-white transition-colors" />
+                </a>
               </div>
             </div>
           </div>
@@ -130,25 +152,8 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Social Icons and Top Button */}
-            <div className="flex items-center space-x-4">
-              <a
-                href="#"
-                className="w-8 h-8 bg-white/50 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Facebook - Joyful Healing Hub"
-                data-testid="link-facebook-footer"
-              >
-                <SiFacebook className="w-4 h-4 text-black hover:text-white transition-colors" />
-              </a>
-              <a
-                href="#"
-                className="w-8 h-8 bg-white/50 hover:bg-black rounded-full flex items-center justify-center transition-colors"
-                aria-label="TikTok - @joyfulhealinghub"
-                data-testid="link-tiktok-footer"
-              >
-                <SiTiktok className="w-4 h-4 text-black hover:text-white transition-colors" />
-              </a>
-              
+            {/* Top Button */}
+            <div className="flex items-center">
               <Button
                 onClick={scrollToTop}
                 variant="ghost"
