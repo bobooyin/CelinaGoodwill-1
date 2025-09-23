@@ -7,7 +7,6 @@ import PartnershipSection from '@/components/PartnershipSection';
 import SocialMediaSection from '@/components/SocialMediaSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import NewsletterSignup from '@/components/NewsletterSignup';
 import { ScrollProgressBar, AnimatedSection } from '@/components/ScrollAnimations';
 import { BackToTop } from '@/components/InteractiveElements';
 import { MessageCircle } from 'lucide-react';

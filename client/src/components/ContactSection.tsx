@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, AlertCircle, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ShareButton } from '@/components/InteractiveElements';
@@ -66,37 +66,6 @@ export default function ContactSection() {
     }
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email Us',
-      primary: 'info@celinasgoodwill.org',
-      secondary: 'partnerships@celinasgoodwill.org',
-      description: 'Get in touch for general inquiries or partnership opportunities'
-    },
-    {
-      icon: Phone,
-      title: 'Call Us',
-      primary: '+234 (0) 123 456 7890',
-      secondary: '+234 (0) 098 765 4321',
-      description: 'Available Monday to Friday, 9:00 AM - 5:00 PM WAT'
-    },
-    {
-      icon: MapPin,
-      title: 'Visit Us',
-      primary: '123 Mental Health Avenue',
-      secondary: 'Victoria Island, Lagos, Nigeria',
-      description: 'Our office is open for scheduled appointments'
-    },
-    {
-      icon: Clock,
-      title: 'Office Hours',
-      primary: 'Monday - Friday: 9:00 AM - 5:00 PM',
-      secondary: 'Saturday: 10:00 AM - 2:00 PM',
-      description: 'Emergency support available 24/7 through our hotline'
-    }
-  ];
-
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 via-white to-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -110,8 +79,8 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+        {/* Contact Form */}
+        <div className="max-w-3xl mx-auto mb-16">
           <Card className="bg-white shadow-xl border-0">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-foreground mb-6">Send Us a Message</h3>
@@ -256,56 +225,10 @@ export default function ContactSection() {
               </form>
             </CardContent>
           </Card>
-
-          {/* Contact Information */}
-          <div className="space-y-6">
-            {contactInfo.map((info, index) => (
-              <Card key={index} className="bg-white shadow-lg border-0 hover:shadow-xl transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                      <info.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-foreground mb-2">
-                        {info.title}
-                      </h4>
-                      <p className="text-foreground font-medium mb-1">
-                        {info.primary}
-                      </p>
-                      <p className="text-muted-foreground mb-2">
-                        {info.secondary}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {info.description}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-
-            {/* Donation Notice */}
-            <Card className="bg-gradient-to-r from-yellow-50 to-orange-50 border-l-4 border-orange-400 shadow-lg">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-3">
-                  <AlertCircle className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="text-lg font-semibold text-orange-800 mb-2">
-                      Donation Information
-                    </h4>
-                    <p className="text-orange-700 leading-relaxed">
-                      <strong>Official donation account details coming soon.</strong> We are currently setting up secure donation channels to ensure transparency and accountability. Follow our social media for updates on how you can financially support our mental health initiatives.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
         </div>
 
         {/* Share Section */}
-        <div className="mt-16 text-center">
+        <div className="text-center">
           <h3 className="text-2xl font-bold text-foreground mb-4">
             Help Us Spread Awareness
           </h3>
@@ -316,8 +239,6 @@ export default function ContactSection() {
             <ShareButton />
           </div>
         </div>
-
-        
       </div>
     </section>
   );
