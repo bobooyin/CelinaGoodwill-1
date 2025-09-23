@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { HandHeart, Users, Mail, MessageCircle } from 'lucide-react';
+import { ShareButton } from '@/components/InteractiveElements';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -193,6 +194,19 @@ export default function PartnershipSection() {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Share Section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold text-foreground mb-4">
+            Help Us Spread Awareness
+          </h3>
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            Share our mission with your network. Every share helps break the stigma and reaches someone who might need support.
+          </p>
+          <div className="flex justify-center">
+            <ShareButton />
+          </div>
         </div>
       </div>
     </section>
