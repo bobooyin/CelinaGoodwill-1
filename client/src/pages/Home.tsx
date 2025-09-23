@@ -5,7 +5,6 @@ import StorySection from '@/components/StorySection';
 import MissionSection from '@/components/MissionSection';
 import PartnershipSection from '@/components/PartnershipSection';
 import SocialMediaSection from '@/components/SocialMediaSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -68,10 +67,6 @@ export default function Home() {
       
       <AnimatedSection animation="fade-up" delay={200}>
         <SocialMediaSection />
-      </AnimatedSection>
-      
-      <AnimatedSection animation="fade-up" delay={300}>
-        <TestimonialsSection />
       </AnimatedSection>
       
       <AnimatedSection animation="fade-up" delay={400}>
