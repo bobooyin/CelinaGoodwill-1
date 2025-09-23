@@ -8,7 +8,6 @@ import PartnershipSection from '@/components/PartnershipSection';
 import Footer from '@/components/Footer';
 import { ScrollProgressBar, AnimatedSection } from '@/components/ScrollAnimations';
 import { BackToTop } from '@/components/InteractiveElements';
-import { MessageCircle } from 'lucide-react';
 
 export default function Home() {
   useEffect(() => {
@@ -53,9 +52,6 @@ export default function Home() {
       <AnimatedSection animation="fade-up" delay={300}>
         <PartnershipSection />
       </AnimatedSection>
-      
-      
-      
       
       
       <Footer />
