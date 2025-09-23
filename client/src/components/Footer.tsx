@@ -1,4 +1,5 @@
-import { Facebook, PlayCircle, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
+import { SiFacebook, SiTiktok } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
 import logoImage from '@/assets/celina-logo.webp';
 
@@ -24,7 +25,16 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Foundation Info */}
             <div className="md:col-span-1">
-              <h3 className="text-xl font-bold mb-6">Celina's Goodwill Foundation</h3>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg bg-white/50 p-1">
+                  <img 
+                    src={logoImage} 
+                    alt="Celina's Goodwill Foundation Logo" 
+                    className="w-full h-full object-contain rounded-full"
+                  />
+                </div>
+                <h3 className="text-xl font-bold">Celina's Goodwill Foundation</h3>
+              </div>
               
               <p className="text-gray-400 leading-relaxed text-sm">
                 Breaking mental health stigma through compassion and community support
@@ -124,19 +134,19 @@ export default function Footer() {
             <div className="flex items-center space-x-4">
               <a
                 href="#"
-                className="w-8 h-8 bg-gray-700 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
+                className="w-8 h-8 bg-white/50 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
                 aria-label="Facebook - Joyful Healing Hub"
                 data-testid="link-facebook-footer"
               >
-                <Facebook className="w-4 h-4 text-white" />
+                <SiFacebook className="w-4 h-4 text-black hover:text-white transition-colors" />
               </a>
               <a
                 href="#"
-                className="w-8 h-8 bg-gray-700 hover:bg-pink-600 rounded-full flex items-center justify-center transition-colors"
+                className="w-8 h-8 bg-white/50 hover:bg-black rounded-full flex items-center justify-center transition-colors"
                 aria-label="TikTok - @joyfulhealinghub"
                 data-testid="link-tiktok-footer"
               >
-                <PlayCircle className="w-4 h-4 text-white" />
+                <SiTiktok className="w-4 h-4 text-black hover:text-white transition-colors" />
               </a>
               
               <Button
