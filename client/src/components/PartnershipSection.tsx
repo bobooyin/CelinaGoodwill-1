@@ -1,62 +1,28 @@
 import { useState } from 'react';
-import { HandHeart, Users, Calendar, Mail, Phone, MapPin } from 'lucide-react';
+import { HandHeart, Users, Mail, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 
 export default function PartnershipSection() {
-  const [activeTab, setActiveTab] = useState('volunteer');
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    interestType: '',
+    message: ''
+  });
 
-  const partnershipTypes = [
-    {
-      id: 'volunteer',
-      title: 'Volunteer With Us',
-      icon: HandHeart,
-      description: 'Join our community of dedicated volunteers making a real difference in mental health advocacy',
-      opportunities: [
-        'Peer Support Counselor',
-        'Community Workshop Facilitator', 
-        'Event Coordinator',
-        'Social Media Ambassador',
-        'Administrative Support'
-      ],
-      commitment: 'Flexible scheduling from 4 hours/week',
-      gradient: 'from-blue-600 to-blue-800'
-    },
-    {
-      id: 'partner',
-      title: 'Become a Partner',
-      icon: Users,
-      description: 'Collaborate with us to expand our reach and create sustainable mental health initiatives',
-      opportunities: [
-        'Corporate Sponsorship Programs',
-        'Healthcare Provider Partnerships',
-        'Educational Institution Collaborations',
-        'Community Organization Alliances',
-        'Media and Advocacy Partnerships'
-      ],
-      commitment: 'Customized partnership agreements',
-      gradient: 'from-green-600 to-green-800'
-    },
-    {
-      id: 'professional',
-      title: 'Professional Services',
-      icon: Calendar,
-      description: 'Contribute your professional expertise to strengthen our mental health programs',
-      opportunities: [
-        'Licensed Mental Health Counselors',
-        'Social Workers and Therapists',
-        'Medical Professionals',
-        'Legal Advisors',
-        'Marketing and Communications Specialists'
-      ],
-      commitment: 'Pro-bono or reduced-rate services',
-      gradient: 'from-pink-600 to-pink-800'
-    }
-  ];
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // TODO: Implement form submission
+  };
 
-  const handleContactClick = (type: string) => {
-    console.log(`Contact form opened for: ${type}`);
-    // TODO: Implement contact form modal
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   return (
@@ -81,103 +47,153 @@ export default function PartnershipSection() {
           </p>
         </div>
 
-        {/* Partnership Types Tabs */}
-        <div className="flex flex-col lg:flex-row justify-center mb-8 space-y-4 lg:space-y-0 lg:space-x-4">
-          {partnershipTypes.map((type) => (
-            <button
-              key={type.id}
-              onClick={() => setActiveTab(type.id)}
-              className={`flex items-center space-x-3 px-6 py-4 rounded-full font-semibold transition-all duration-300 ${
-                activeTab === type.id
-                  ? `bg-gradient-to-r ${type.gradient} text-white shadow-lg transform scale-105`
-                  : 'bg-white text-muted-foreground hover:bg-gray-50 border border-gray-200'
-              }`}
-              data-testid={`tab-${type.id}`}
-            >
-              <type.icon className="w-5 h-5" />
-              <span>{type.title}</span>
-            </button>
-          ))}
-        </div>
+        {/* Contact Form and Community Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Contact Form */}
+          <Card className="bg-white shadow-xl border-0">
+            <CardContent className="p-8">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-4">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-foreground">Get in Touch</h3>
+                  <p className="text-muted-foreground">Tell us how you'd like to contribute</p>
+                </div>
+              </div>
 
-        {/* Active Tab Content */}
-        {partnershipTypes.map((type) => (
-          <div
-            key={type.id}
-            className={`transition-all duration-500 ${
-              activeTab === type.id ? 'opacity-100 block' : 'opacity-0 hidden'
-            }`}
-          >
-            <Card className="bg-white/80 backdrop-blur-sm shadow-xl border-0">
-              <CardContent className="p-8 md:p-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  {/* Content */}
-                  <div>
-                    <div className={`w-20 h-20 bg-gradient-to-r ${type.gradient} rounded-full flex items-center justify-center mb-6`}>
-                      <type.icon className="w-10 h-10 text-white" />
-                    </div>
-                    
-                    <h3 className="text-3xl font-bold text-foreground mb-4">
-                      {type.title}
-                    </h3>
-                    
-                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                      {type.description}
-                    </p>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <Label htmlFor="fullName" className="text-sm font-medium text-foreground mb-2 block">
+                    Full Name *
+                  </Label>
+                  <Input
+                    id="fullName"
+                    type="text"
+                    placeholder="Enter your full name"
+                    value={formData.fullName}
+                    onChange={(e) => handleInputChange('fullName', e.target.value)}
+                    required
+                    data-testid="input-full-name"
+                    className="w-full"
+                  />
+                </div>
 
-                    <div className="mb-8">
-                      <h4 className="text-xl font-semibold text-foreground mb-4">
-                        Opportunities Available:
-                      </h4>
-                      <ul className="space-y-3">
-                        {type.opportunities.map((opportunity, index) => (
-                          <li key={index} className="flex items-start">
-                            <div className={`w-2 h-2 bg-gradient-to-r ${type.gradient} rounded-full mt-2 mr-3 flex-shrink-0`} />
-                            <span className="text-muted-foreground">{opportunity}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                <div>
+                  <Label htmlFor="email" className="text-sm font-medium text-foreground mb-2 block">
+                    Email Address *
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email address"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    required
+                    data-testid="input-email"
+                    className="w-full"
+                  />
+                </div>
 
-                    <div className="mb-8">
-                      <span className="text-sm font-medium text-muted-foreground">
-                        Commitment Level: {type.commitment}
-                      </span>
-                    </div>
+                <div>
+                  <Label htmlFor="interestType" className="text-sm font-medium text-foreground mb-2 block">
+                    Interest Type *
+                  </Label>
+                  <Select onValueChange={(value) => handleInputChange('interestType', value)} required>
+                    <SelectTrigger className="w-full" data-testid="select-interest-type">
+                      <SelectValue placeholder="Select your area of interest" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="volunteer">Volunteering</SelectItem>
+                      <SelectItem value="partnership">Partnership</SelectItem>
+                      <SelectItem value="professional">Professional Services</SelectItem>
+                      <SelectItem value="sponsorship">Sponsorship</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-                    <Button
-                      onClick={() => handleContactClick(type.id)}
-                      className={`bg-gradient-to-r ${type.gradient} hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300`}
-                      size="lg"
-                      data-testid={`button-${type.id}-contact`}
-                    >
-                      Get Started Today
-                    </Button>
+                <div>
+                  <Label htmlFor="message" className="text-sm font-medium text-foreground mb-2 block">
+                    Message (Optional)
+                  </Label>
+                  <Textarea
+                    id="message"
+                    placeholder="Tell us more about your interest or how you'd like to help..."
+                    value={formData.message}
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    rows={4}
+                    data-testid="textarea-message"
+                    className="w-full"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white py-3 text-lg font-semibold"
+                  data-testid="button-submit-contact"
+                >
+                  Send Message
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+
+          {/* Community Card */}
+          <Card className="bg-gradient-to-br from-gray-900 to-gray-800 text-white shadow-xl border-0">
+            <CardContent className="p-8 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-green-600/10" />
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mr-4">
+                    <Users className="w-6 h-6 text-white" />
                   </div>
+                  <h3 className="text-2xl font-bold">Join Our Community</h3>
+                </div>
 
-                  {/* Visual Element */}
-                  <div className="relative">
-                    <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl p-8 relative overflow-hidden">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${type.gradient} opacity-5`} />
-                      <div className="relative z-10 text-center">
-                        <type.icon className="w-24 h-24 text-gray-400 mx-auto mb-6" />
-                        <h4 className="text-2xl font-bold text-foreground mb-4">
-                          Ready to Make an Impact?
-                        </h4>
-                        <p className="text-muted-foreground leading-relaxed">
-                          Your contribution, no matter how big or small, creates ripple effects 
-                          of positive change in mental health advocacy.
-                        </p>
-                      </div>
+                <p className="text-gray-300 mb-8 text-lg leading-relaxed">
+                  Create positive change in mental health advocacy.
+                </p>
+
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-green-400 rounded-full mt-2 mr-3 flex-shrink-0" />
+                    <div>
+                      <span className="text-white font-medium">Volunteers:</span>
+                      <span className="text-gray-300 ml-2">All experience levels</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-green-400 rounded-full mt-2 mr-3 flex-shrink-0" />
+                    <div>
+                      <span className="text-white font-medium">Partners:</span>
+                      <span className="text-gray-300 ml-2">Collaborative opportunities</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-green-400 rounded-full mt-2 mr-3 flex-shrink-0" />
+                    <div>
+                      <span className="text-white font-medium">Flexible:</span>
+                      <span className="text-gray-300 ml-2">All schedules welcome</span>
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        ))}
 
-        
+                <div className="mt-8 p-6 bg-white/5 rounded-2xl backdrop-blur-sm">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-gray-400">Ready to make a difference?</p>
+                      <p className="text-lg font-semibold text-white">Every contribution counts</p>
+                    </div>
+                    <MessageCircle className="w-8 h-8 text-blue-400" />
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );
